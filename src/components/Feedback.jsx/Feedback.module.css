@@ -1,0 +1,18 @@
+.feedbackTitle {
+  margin-top: 70px;
+}
+
+.feedbackButtons {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.statisticsDisplay {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.statisticsDisplay span {
+  font-weight: 500;
+  font-size: 18px;
+}
