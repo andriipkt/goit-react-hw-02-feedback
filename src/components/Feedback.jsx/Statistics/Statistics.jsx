@@ -1,30 +1,20 @@
 import css from '../Feedback.module.css';
+import StatisticItem from './StatisticsItem/StatisticsItem';
 
-function Statistics({ good, neutral, bad, total, positivePercentage }) {
+function Statistics(data) {
+  const dataEntries = Object.entries(data);
   return (
     <>
       <h2>Statistics</h2>
 
       <ul>
-        <li className={css.statisticsDisplay}>
-          Good: <span>{good}</span>
-        </li>
-
-        <li className={css.statisticsDisplay}>
-          Neutral: <span>{neutral}</span>
-        </li>
-
-        <li className={css.statisticsDisplay}>
-          Bad: <span>{bad}</span>
-        </li>
-
-        <li className={css.statisticsDisplay}>
-          Total: <span>{total}</span>
-        </li>
-
-        <li className={css.statisticsDisplay}>
-          Positive feedback: <span>{`${positivePercentage}%`}</span>
-        </li>
+        {dataEntries.map(([key, value]) => (
+          <StatisticItem
+            key={key}
+            text={key}
+            value={key === 'positivePercentage' ? `${value}%` : ` ${value}`}
+          />
+        ))}
       </ul>
     </>
   );

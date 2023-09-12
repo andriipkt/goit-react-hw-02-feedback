@@ -1,4 +1,8 @@
-.feedbackTitle {
+ul {
+  list-style: none;
+}
+
+.section {
   margin-top: 70px;
 }
 
@@ -7,12 +11,12 @@
   margin-bottom: 25px;
 }
 
-.statisticsDisplay {
+.statisticsItem {
   font-weight: 400;
   font-size: 18px;
 }
 
-.statisticsDisplay span {
+.statisticsItem span {
   font-weight: 500;
   font-size: 18px;
 }
