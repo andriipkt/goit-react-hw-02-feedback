@@ -12,29 +12,23 @@ export class Feedback extends Component {
     bad: 0,
   };
 
-  handleOnFeedbackClick = event => {
+  handleOnFeedbackClick = name => {
     this.setState(currState => {
-      const name = event.target.name;
-
       return { [name]: currState[name] + 1 };
     });
   };
 
   countTotalFeedback() {
-    const { good, neutral, bad } = this.state;
-    return good + neutral + bad;
+    const values = Object.values(this.state);
+
+    return values.reduce((total, value) => total + value, 0);
   }
 
   countPositiveFeedbackPercentage() {
     const totalFeedbacks = this.countTotalFeedback();
-    const positiveFeedbacks = this.state.good;
+    const { good } = this.state;
 
-    if (totalFeedbacks === 0) {
-      return 0;
-    }
-
-    const percentage = (positiveFeedbacks / totalFeedbacks) * 100;
-    return Math.round(percentage);
+    return Math.round((good / totalFeedbacks) * 100);
   }
 
   render() {
@@ -42,7 +36,7 @@ export class Feedback extends Component {
       <Section title={'Please leave feedback'}>
         <FeedbackOptions
           options={Object.keys(this.state)}
-          onLeaveFeedback={this.handleOnFeedbackClick}
+          handleOnFeedbackClick={this.handleOnFeedbackClick}
         />
 
         {this.countTotalFeedback() === 0 ? (

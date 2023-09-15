@@ -1,6 +1,7 @@
 import css from '../Feedback.module.css';
 
-function FeedbackOptions({ options, onLeaveFeedback }) {
+function FeedbackOptions({ options, handleOnFeedbackClick }) {
+  console.log(options);
   return (
     <div
       className={`btn-group ${css.feedbackButtons}`}
@@ -16,7 +17,7 @@ function FeedbackOptions({ options, onLeaveFeedback }) {
             name={option}
             type="button"
             className={`btn ${classes[options.indexOf(option)]}`}
-            onClick={onLeaveFeedback}
+            onClick={() => handleOnFeedbackClick(option)}
           >
             {option}
           </button>
